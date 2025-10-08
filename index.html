@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>AB Nutri - Modular</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#0d0f12">
+</head>
+<body>
+<header class="header">
+  <div class="brand"><img src="abnutri_logo.png" class="logo" alt="AB Logo"><div><div class="title">AB Nutri</div><div class="small-muted" id="userEmail"></div></div></div>
+  <nav class="topnav" id="topnav" style="display:none">
+    <div class="chip" data-page="registro">Registro</div>
+    <div class="chip" data-page="banco">Banco</div>
+    <div class="chip" data-page="auditoria">Auditoria</div>
+    <div class="chip" data-page="metabolismo">Check-up Pessoal</div>
+    <div class="chip" data-page="Musculação">Saúde Ativa</div>
+    <div class="chip" data-page="exportar">Exportar</div>
+    <div class="chip" id="logoutBtn" style="margin-left:18px;background:#0b0d0f;border:1px solid #222">Sair</div>
+  </nav>
+</header>
+
+<main id="app">
+  <!-- Keep a minimal body: the original app content (forms/badges) should be the same structure.
+       For brevity, only the metabolism / registro area needed for functionality is included here.
+  -->
+  <section id="mainScreen" style="display:none">
+    <div class="container">
+      <div id="page-metabolismo" class="card" style="display:block">
+        <div class="section-title">Dados Pessoais</div>
+        <div class="grid grid-4" style="margin-bottom:10px">
+          <div>
+            <label class="small-muted">Nome (opcional)</label>
+            <input id="metaNome" class="input"/>
+            <label class="small-muted">Idade (anos)</label>
+            <input id="metaIdade" class="input" placeholder="30"/>
+            <label class="small-muted">Sexo</label>
+            <select id="metaSexo" class="input"><option value="M">Masculino</option><option value="F">Feminino</option></select>
+            <label class="small-muted">Peso (kg)</label>
+            <input id="metaPeso" class="input" placeholder="70"/>
+            <label class="small-muted">Altura (cm)</label>
+            <input id="metaAltura" class="input" placeholder="173"/>
+          </div>
+          <div>
+            <div class="section-title">Objetivos</div>
+            <select id="metaObjetivo" class="input">
+              <option value="-800">Perder gordura</option>
+              <option value="0">Manter peso</option>
+              <option value="1000">Ganho de massa</option>
+            </select>
+            <label class="small-muted">Meta de água (ml)</label>
+            <input id="metaAgua" class="input" placeholder="2000"/>
+            <label class="small-muted">Intervalo lembrete de água (min)</label>
+            <input id="metaAguaIntervalo" class="input" placeholder="60"/>
+            <label class="small-muted">Nível de atividade</label>
+            <select id="metaAtividade" class="input">
+              <option value="1.2">Sedentário (1.2)</option>
+              <option value="1.375">Levemente Ativo (1.375)</option>
+              <option value="1.55">Moderadamente Ativo (1.55)</option>
+              <option value="1.725">Muito Ativo (1.725)</option>
+              <option value="1.9">Extremamente Ativo (1.9)</option>
+            </select>
+            <label class="small-muted">Cardio (km)</label>
+            <input id="metaEsteira" class="input" placeholder="0"/>
+          </div>
+          <div>
+            <label class="small-muted">Musculação (h)</label>
+            <input id="metaMusculacao" class="input" placeholder="0"/>
+          </div>
+          <div>
+            <div class="section-title">Medidas Corporais</div>
+            <label class="small-muted">Cintura (cm)</label>
+            <input id="metaCintura" class="input" placeholder="80"/>
+            <label class="small-muted">Pescoço (cm)</label>
+            <input id="metaPescoco" class="input" placeholder="40"/>
+            <label class="small-muted">Quadril (cm, apenas mulheres)</label>
+            <input id="metaQuadril" class="input" placeholder="90"/>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;align-items:center">
+          <button id="calcMeta" class="btn">Calcular</button>
+          <button id="aplicarMeta" class="btn ghost">Aplicar como Meta</button>
+        </div>
+
+        <div style="margin-top:14px" class="flex">
+          <div class="badge" id="tmbBadge">TMB<br><strong>0 kcal</strong></div>
+          <div class="badge" id="esteiraBadge">Esteira<br><strong>0 kcal</strong></div>
+          <div class="badge" id="muscuBadge">Musculação<br><strong>0 kcal</strong></div>
+          <div class="badge" id="tdeeBadge">TDEE<br><strong>0 kcal</strong></div>
+          <div class="badge" id="metaBadge">Meta<br><strong>0 kcal</strong></div>
+          <div class="badge" id="bfBadge">BF<br><strong>0 %</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
